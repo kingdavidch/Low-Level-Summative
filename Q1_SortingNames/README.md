@@ -1,6 +1,7 @@
 # Q1: Name Management System
 ## Project Structure
 
+```
 Q1_SortingNames/
 ├── src/
 │   ├── main.c           # Main program implementation
@@ -13,7 +14,7 @@ Q1_SortingNames/
 │   └── utils.h          # Header file for utility functions
 ├── README.md            # Documentation for the project
 ├── Makefile             # Build automation file
-
+```
 ## About
 A C program that manages a collection of student names through sorting and counting functionalities. The system employs function pointers and callbacks to handle name operations dynamically.
 ## Core Features
