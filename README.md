@@ -88,13 +88,7 @@ The assessment consists of four main components, each focusing on different prog
 - File operations
 - Data structuring
 - Persistent storage
-  
-## **Repository Setup**
-1. Clone the repository:
-  git clone git@github.com:CharlesMwaniki/Programming_C_Summative.git
-2. Enter project directory:
-  cd Programming_C_Summative
-3. Follow individual file instructions above
+
 
 ## **Summary**
 This project demonstrates my proficiency in C programming through practical implementations of various programming concepts. Each component showcases different aspects of low-level programming skills.
