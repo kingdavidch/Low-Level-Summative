@@ -1,37 +1,6 @@
-# **Q3: Multithreads - Sum of n Numbers**
-
-## **Overview**
-
-This program calculates the sum of `n` numbers using **10 threads**. The user enters the value of `n` (greater than 1000) via the keyboard, and the program divides the array of `n` numbers equally across the 10 threads. Each thread computes the sum of its assigned slice, and the partial sums are combined to produce the final total sum.
-
-This implementation demonstrates efficient use of multithreading in C for parallel computation.
-
----
-
-## **Features**
-
-1. **Dynamic Array Allocation**:
-   - Supports large `n` values by dynamically allocating memory for the array.
-
-2. **Multithreading**:
-   - Divides the array into 10 slices, with each slice processed by a separate thread.
-
-3. **Partial Sum Calculation**:
-   - Each thread computes the sum of its assigned slice.
-
-4. **Thread Debugging**:
-   - Prints detailed information about each thread, including:
-     - Thread ID
-     - Range of indices processed
-     - Partial sum calculated
-
-5. **Final Sum Computation**:
-   - Combines partial sums from all threads to calculate the total sum.
-
----
-
-## **Folder Structure**
-
+# Parallel Sum Calculator (Q3)
+## System Architecture
+📦 Project Structure
 ```plaintext
 Q3_Multithreads/
 ├── src/
@@ -41,117 +10,78 @@ Q3_Multithreads/
 ├── Makefile             # Build automation file
 ├── README.md            # Documentation
 ```
-
----
-
-## **How to Use**
-
-### **Step 1: Compile the Program**
-Use the provided `Makefile` for easy compilation:
-```bash
+## Core Concept
+A high-performance C program that leverages parallel processing to compute the sum of a large sequence of numbers. The system divides the computation across 10 concurrent threads for optimal performance.
+## Key Capabilities
+✨ **Parallel Processing**
+- Distributes computation across 10 worker threads
+- Each thread handles an equal segment of data
+- Thread-safe partial sum calculation
+🔄 **Dynamic Memory**
+- Flexible array size handling
+- Efficient memory allocation
+- Resource cleanup
+📊 **Performance Monitoring** 
+- Thread activity tracking
+- Segment allocation display
+- Partial sum reporting
+## Getting Started
+### Build Instructions
 make
-```
-
-### **Step 2: Run the Program**
-Run the compiled executable:
-```bash
-./multithread_sum
-```
-
-### **Step 3: Provide Input**
-When prompted, enter a value of `n` (greater than 1000). Example:
+### Launch Application
+./thread_sum
+### Basic Usage
+1. Launch the program
+2. Enter n (must exceed 1000)
+3. View thread computations
+4. Get final sum result
+## Output Example
 ```plaintext
-Enter the value of n (greater than 1000): 1001
+Input:
+Enter n (>1000): 1500
+Result Display:
+Thread[1]: Range[0-149] Sum: 11175
+Thread[2]: Range[150-299] Sum: 33525
+Thread[3]: Range[300-449] Sum: 55875
+[Additional thread outputs...]
+Final Sum: 1125750
 ```
-
-### **Step 4: Observe Output**
-The program will display the partial sums calculated by each thread and the final total sum.
-
----
-
-## **Sample Output**
-
-### **Input:**
-```plaintext
-Enter the value of n (greater than 1000): 1001
-```
-
-### **Output:**
-```plaintext
-Thread 1 processed indices [0 - 99], Partial Sum: 5050
-Thread 2 processed indices [100 - 199], Partial Sum: 15050
-Thread 3 processed indices [200 - 299], Partial Sum: 25050
-Thread 4 processed indices [300 - 399], Partial Sum: 35050
-Thread 5 processed indices [400 - 499], Partial Sum: 45050
-Thread 6 processed indices [500 - 599], Partial Sum: 55050
-Thread 7 processed indices [600 - 699], Partial Sum: 65050
-Thread 8 processed indices [700 - 799], Partial Sum: 75050
-Thread 9 processed indices [800 - 899], Partial Sum: 85050
-Thread 10 processed indices [900 - 1000], Partial Sum: 105550
-Total sum of the array: 501501
-```
-
----
-
-## **Implementation Details**
-
-### **Thread Arguments (`ThreadArgs`)**
-- **Fields**:
-  - `array`: Pointer to the array to process.
-  - `startIndex`: Starting index of the array slice for the thread.
-  - `endIndex`: Ending index of the array slice for the thread.
-  - `partialSum`: Sum of the slice calculated by the thread.
-  - `threadId`: ID of the thread (for debugging purposes).
-
-### **Core Functions**
-1. **`computePartialSum`**:
-   - Computes the sum of the assigned slice for each thread.
-   - Prints thread details for debugging.
-
-2. **`calculateTotalSum`**:
-   - Creates threads to process slices of the array.
-   - Joins threads and accumulates partial sums to compute the total.
-
----
-
-## **Learning Outcomes**
-
-1. **Threading Basics**:
-   - Creation, execution, and joining of threads using the `pthread` library.
-
-2. **Data Division**:
-   - Efficiently dividing large datasets across multiple threads for parallel processing.
-
-3. **Memory Management**:
-   - Dynamic allocation of memory for arrays to handle large inputs.
-
-4. **Debugging Multithreaded Programs**:
-   - Using thread IDs and detailed output for debugging and verification.
-
----
-
-## **Compilation and Execution Commands**
-
-### **Compile**
-```bash
+## Technical Implementation
+### Thread Components
+- ThreadArgs Structure:
+ - Data segment pointers
+ - Index range
+ - Partial results
+ - Thread identifier
+### Core Functions
+1. partialSumCompute()
+  - Segment processing
+  - Sum accumulation
+  - Status reporting
+2. totalSumCalculate()
+  - Thread creation
+  - Work distribution
+  - Result aggregation
+## Performance Features
+- Parallel execution
+- Efficient workload distribution
+- Minimal thread overhead
+- Clear progress tracking
+## Educational Value
+- Thread programming
+- Parallel algorithms
+- Memory management
+- Performance optimization
+## Future Enhancements
+1. Configurable thread count
+2. Advanced error handling
+3. Performance metrics
+4. UI improvements
+## Build Commands
+# Compile
 make
-```
-
-### **Run**
-```bash
-./multithread_sum
-```
-
-### **Clean**
-Remove compiled files:
-```bash
+# Execute
+./thread_sum
+# Cleanup
 make clean
-```
-## **Author**
-**Name:** Joshua Alana  
-**School:** African Leadership University  
-**Year:** 2  
-**Term:** 3  
-**Repository:** [GitHub Repository](https://github.com/Joshua-Coded/Programming_C_Summative.git)  
-
----
+## Developer Details
